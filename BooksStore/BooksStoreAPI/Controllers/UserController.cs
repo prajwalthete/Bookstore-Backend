@@ -1,7 +1,9 @@
 ﻿using BusinessLayer.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ModelLayer.Models;
 using RepositoryLayer.ExceptionHandler;
+using System.Security.Claims;
 
 namespace BooksStoreAPI.Controllers
 {
@@ -100,6 +102,40 @@ namespace BooksStoreAPI.Controllers
 
                 return StatusCode(500, "An unexpected error occurred");
             }
+        }
+
+
+
+        [Authorize]
+        [HttpGet("protected")]
+        public IActionResult ProtectedEndpoint(string expectedUserEmail)
+        {
+            // Extract user Email claim from the token
+
+            var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            int UserId = Convert.ToInt32(userIdClaim);
+            Console.WriteLine(UserId);
+
+            var userEmailClaim = User.FindFirstValue(ClaimTypes.Email);
+            Console.WriteLine(userEmailClaim);
+
+            var userRole = User.FindFirstValue(ClaimTypes.Role);
+            Console.WriteLine(userRole);
+
+            if (userEmailClaim == null)
+            {
+                return Unauthorized("Invalid token");
+            }
+
+            // Compare the user email from the token with the expectedEmail
+            if (!expectedUserEmail.Equals(userEmailClaim))
+            {
+                return Unauthorized("You are not authorized to access this resource.");
+            }
+
+            // This endpoint can only be accessed with a valid JWT token and the correct user ID
+            return Ok("Welcome to the FundooNotes!");
+
         }
     }
 }

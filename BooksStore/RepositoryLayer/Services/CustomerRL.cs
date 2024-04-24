@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using ModelLayer.Models;
 using RepositoryLayer.Context;
+using RepositoryLayer.Entities;
 using RepositoryLayer.ExceptionHandler;
 using RepositoryLayer.Interfaces;
 using System.Text.RegularExpressions;
@@ -10,10 +11,12 @@ namespace RepositoryLayer.Services
     public class CustomerRL : ICustomerRL
     {
         private readonly BookStoreContext _context;
+        private readonly IAuthService _authService;
 
-        public CustomerRL(BookStoreContext context)
+        public CustomerRL(BookStoreContext context, IAuthService authService)
         {
             _context = context;
+            _authService = authService;
         }
 
         public async Task<bool> Register(CustomerRegistrationModel customerRegistrationModel)
@@ -60,34 +63,34 @@ namespace RepositoryLayer.Services
 
         public async Task<string> Login(CustomerLoginModel customerLoginModel)
         {
-            // Retrieve the hashed password from the database based on the provided email
-            var query = @"
-                         SELECT password FROM Customer WHERE email = @Email;
-                        ";
+            // Retrieve the customer from the database based on the provided email
+            var query = @" SELECT * FROM Customer WHERE email = @Email;  ";
 
-            string hashedPassword;
+            Customer customer;
 
             using (var connection = _context.CreateConnection())
             {
-                // Execute the query to retrieve the hashed password
-                hashedPassword = await connection.QuerySingleOrDefaultAsync<string>(query, new { Email = customerLoginModel.email });
+                // Execute the query to retrieve the customer
+                customer = await connection.QueryFirstOrDefaultAsync<Customer>(query, new { Email = customerLoginModel.email });
             }
 
             // Check if a matching user with the provided email exists
-            if (hashedPassword == null)
+            if (customer == null)
             {
                 throw new InvalidLoginException("Invalid email or password");
             }
 
             // Verify the password using BCrypt
-            if (!BCrypt.Net.BCrypt.Verify(customerLoginModel.password, hashedPassword))
+            if (!BCrypt.Net.BCrypt.Verify(customerLoginModel.password, customer.password))
             {
                 throw new InvalidLoginException("Invalid email or password");
             }
 
-
-            return "dummy_token";
+            // Generate JWT token for successful login
+            var token = _authService.GenerateJwtToken(customer);
+            return token;
         }
+
 
 
         public bool IsValidEmail(string email)
