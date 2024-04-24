@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using ModelLayer.Models;
+using RepositoryLayer.ExceptionHandler;
 
 namespace BooksStoreAPI.Controllers
 {
@@ -35,9 +36,22 @@ namespace BooksStoreAPI.Controllers
 
                 return BadRequest("Invalid input");
             }
-            catch (Exception ex)
+            catch (EmailAlreadyExistsException ex)
             {
                 // Log the exception
+                _logger.LogError(ex, $"Error occurred during customer registration: {ex.Message}");
+
+                var errorResponse = new ResponseModel<string>
+                {
+                    Success = false,
+                    Message = "Email already exists",
+                    Data = ex.Message
+                };
+                return Conflict(errorResponse);
+            }
+            catch (Exception ex)
+            {
+                // Log other exceptions
                 _logger.LogError(ex, "Error occurred during customer registration");
 
                 var errorResponse = new ResponseModel<string>
@@ -47,6 +61,44 @@ namespace BooksStoreAPI.Controllers
                     Data = ex.Message
                 };
                 return BadRequest(errorResponse);
+            }
+        }
+
+
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login(CustomerLoginModel userLogin)
+        {
+            try
+            {
+                string token = await _customerBL.Login(userLogin);
+
+                // Log successful login
+                _logger.LogInformation($"User with email '{userLogin.email}' logged in successfully.");
+
+
+                var response = new ResponseModel<string>
+                {
+                    Message = "Login Successful",
+                    Data = token
+                };
+                return Ok(response);
+            }
+            catch (InvalidLoginException ex)
+            {
+                // Log invalid login attempt
+                _logger.LogWarning(ex, $"Invalid login attempt for email '{userLogin.email}'");
+
+
+                return BadRequest("Invalid email or password");
+            }
+            catch (Exception ex)
+            {
+
+                _logger.LogError(ex, "An unexpected error occurred during login");
+
+
+                return StatusCode(500, "An unexpected error occurred");
             }
         }
     }

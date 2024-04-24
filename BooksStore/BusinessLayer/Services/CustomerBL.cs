@@ -17,5 +17,10 @@ namespace BusinessLayer.Services
         {
             return _customerRL.Register(customerRegistrationModel);
         }
+
+        public Task<string> Login(CustomerLoginModel userLogin)
+        {
+            return _customerRL.Login(userLogin);
+        }
     }
 }

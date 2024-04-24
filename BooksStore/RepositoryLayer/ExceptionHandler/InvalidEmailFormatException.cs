@@ -3,7 +3,7 @@
 namespace RepositoryLayer.ExceptionHandler
 {
     [Serializable]
-    internal class InvalidEmailFormatException : Exception
+    public class InvalidEmailFormatException : Exception
     {
         public InvalidEmailFormatException()
         {
