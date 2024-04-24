@@ -2,8 +2,10 @@ using BooksStoreAPI.Middleware;
 using BusinessLayer.Interfaces;
 using BusinessLayer.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using ModelLayer.Models.Email;
 using NLog;
 using NLog.Extensions.Logging;
 using NLog.Web;
@@ -32,6 +34,10 @@ try
     builder.Services.AddScoped<ICustomerRL, CustomerRL>();
 
     builder.Services.AddScoped<IAuthService, AuthService>();
+    builder.Services.AddScoped<IEmailBL, EmailServiceBL>();
+    builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
+    builder.Services.AddScoped<IEmailRL, EmailServiceRL>();
+    builder.Services.AddScoped(sp => sp.GetRequiredService<IOptions<EmailSettings>>().Value);
 
     // Get the secret key from the configuration
     var key = Encoding.ASCII.GetBytes(builder.Configuration["JwtSettings:Secret"]);
@@ -59,6 +65,9 @@ try
                 ValidateAudience = false
             };
         });
+
+    // Add memory cache service
+    builder.Services.AddMemoryCache();
 
 
     builder.Services.AddControllers();
@@ -123,6 +132,9 @@ try
 
     // Add the global error handling middleware
     app.UseErrorHandlingMiddleware();
+
+    // Enable authentication middleware
+    app.UseAuthentication();
 
     app.UseAuthorization();
 

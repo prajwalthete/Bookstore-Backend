@@ -22,5 +22,15 @@ namespace BusinessLayer.Services
         {
             return _customerRL.Login(userLogin);
         }
+
+        public Task<string> ForgetPassword(ForgetPasswordModel forgetPasswordModel)
+        {
+            return _customerRL.ForgetPassword(forgetPasswordModel);
+        }
+
+        public Task<bool> ResetPassword(ResetPasswordWithOTPModel resetPasswordWithOTPModel)
+        {
+            return _customerRL.ResetPassword(resetPasswordWithOTPModel);
+        }
     }
 }

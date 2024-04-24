@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using Microsoft.Extensions.Caching.Memory;
 using ModelLayer.Models;
 using RepositoryLayer.Context;
 using RepositoryLayer.Entities;
@@ -12,11 +13,16 @@ namespace RepositoryLayer.Services
     {
         private readonly BookStoreContext _context;
         private readonly IAuthService _authService;
+        private readonly IEmailRL _emailService;
+        private readonly IMemoryCache _cache;
 
-        public CustomerRL(BookStoreContext context, IAuthService authService)
+
+        public CustomerRL(BookStoreContext context, IAuthService authService, IEmailRL emailService, IMemoryCache cache)
         {
             _context = context;
             _authService = authService;
+            _emailService = emailService;
+            _cache = cache;
         }
 
         public async Task<bool> Register(CustomerRegistrationModel customerRegistrationModel)
@@ -92,6 +98,58 @@ namespace RepositoryLayer.Services
         }
 
 
+        public async Task<string> ForgetPassword(ForgetPasswordModel forgetPasswordModel)
+        {
+            // Check if the provided email exists in the database
+            var emailExistsQuery = @"SELECT COUNT(*) FROM Customer WHERE email = @Email;";
+
+            using (var connection = _context.CreateConnection())
+            {
+                int count = await connection.QuerySingleAsync<int>(emailExistsQuery, new { Email = forgetPasswordModel.Email });
+
+                if (count == 0)
+                {
+                    throw new NotFoundException($"Email '{forgetPasswordModel.Email}' not found");
+                }
+            }
+
+            // Generate OTP
+            string otp = GenerateOTP();
+
+            // Store OTP in cache
+            _cache.Set(forgetPasswordModel.Email, otp, TimeSpan.FromMinutes(10)); // Adjust the expiration time as needed
+
+            // Send OTP to user's email
+            await SendOTPEmail(forgetPasswordModel.Email, otp);
+
+            return otp;
+        }
+
+
+        private string GenerateOTP()
+        {
+            // Generate a random 6-digit OTP
+            Random rand = new Random();
+            return rand.Next(100000, 999999).ToString();
+        }
+
+        private async Task SendOTPEmail(string email, string otp)
+        {
+            // Construct email body with OTP
+            var emailBody = $@"
+        <html>
+            <body>
+                <p>Hello,</p>
+                <p>Please use the following OTP to reset your password vaild for 10 minutes:</p>
+                <p><strong>{otp}</strong></p>
+                <p>Thank you!</p>
+            </body>
+        </html>";
+
+            // Send email
+            await _emailService.SendEmailAsync(email, "Password Reset OTP", emailBody);
+        }
+
 
         public bool IsValidEmail(string email)
         {
@@ -100,5 +158,48 @@ namespace RepositoryLayer.Services
         }
 
 
+
+        public async Task<bool> ResetPassword(ResetPasswordWithOTPModel resetPasswordWithOTPModel)
+        {
+
+
+            string email = resetPasswordWithOTPModel.Email;
+            string storedOtp;
+
+            // Retrieve OTP from cache
+            if (!_cache.TryGetValue(email, out storedOtp))
+            {
+                throw new NotFoundException($"OTP for email '{email}' not found");
+            }
+
+            // Check if provided OTP matches stored OTP
+            if (resetPasswordWithOTPModel.OTP != storedOtp)
+            {
+                throw new InvalidOTPException("Invalid OTP");
+            }
+
+
+
+            // Reset the password in the database
+            var query = @"UPDATE Customer SET password = @Password WHERE email = @Email;";
+
+            string hashedPassword = BCrypt.Net.BCrypt.HashPassword(resetPasswordWithOTPModel.NewPassword);
+
+            using (var connection = _context.CreateConnection())
+            {
+                await connection.ExecuteAsync(query, new
+                {
+                    Password = hashedPassword,
+                    Email = resetPasswordWithOTPModel.Email
+                });
+            }
+
+            // Remove OTP from cache
+            _cache.Remove(email);
+
+            return true;
+        }
+
     }
 }
+

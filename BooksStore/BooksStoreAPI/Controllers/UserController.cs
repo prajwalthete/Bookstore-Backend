@@ -137,5 +137,136 @@ namespace BooksStoreAPI.Controllers
             return Ok("Welcome to the FundooNotes!");
 
         }
+
+
+        [HttpPost("ForgetPassword")]
+        public async Task<IActionResult> ForgetPassword(ForgetPasswordModel forgetPasswordModel)
+        {
+            try
+            {
+
+                string Token = await _customerBL.ForgetPassword(forgetPasswordModel);
+
+                //HttpContext.Response.Headers.Add("Authorization", $"Bearer {Token}");
+
+                if (Token != null)
+                {
+                    var response = new ResponseModel<string>
+                    {
+                        Success = true,
+                        Message = "Email sent successfully.",
+                        // Data = Token
+
+                    };
+                    return Ok(response);
+                }
+                else
+                {
+                    var response = new ResponseModel<string>
+                    {
+                        Success = false,
+                        Message = "Failed to send email.",
+                        Data = null
+                    };
+                    return BadRequest(response);
+                }
+            }
+            catch (NotFoundException ex)
+            {
+                var response = new ResponseModel<string>
+                {
+
+                    Success = false,
+                    Message = $"Error sending email: {ex.Message}",
+                    Data = null
+                };
+                return StatusCode(500, response);
+            }
+            catch (EmailSendingException ex)
+            {
+                var response = new ResponseModel<string>
+                {
+
+                    Success = false,
+                    Message = $"Error sending email: {ex.Message}",
+                    Data = null
+                };
+                return StatusCode(500, response);
+            }
+            catch (Exception ex)
+            {
+                var response = new ResponseModel<string>
+                {
+                    Success = false,
+                    Message = $"An unexpected error occurred: {ex.Message}",
+                    Data = null
+                };
+                return StatusCode(500, response);
+            }
+        }
+
+
+
+        [HttpPost("ResetPassword")]
+        public async Task<IActionResult> ResetPassword(ResetPasswordWithOTPModel resetPasswordModel)
+        {
+            try
+            {
+                bool isPasswordReset = await _customerBL.ResetPassword(resetPasswordModel);
+                if (isPasswordReset)
+                {
+                    var response = new ResponseModel<bool>
+                    {
+                        Success = true,
+                        Message = "Password reset successfully",
+                        Data = isPasswordReset
+                    };
+                    return Ok(response);
+
+                }
+                return BadRequest();
+
+
+
+            }
+            catch (InvalidOTPException ex)
+            {
+                var response = new ResponseModel<bool>
+                {
+                    Success = false,
+                    Message = ex.Message,
+                    Data = false
+                };
+
+                return BadRequest(response);
+            }
+            catch (NotFoundException ex)
+            {
+                var response = new ResponseModel<bool>
+                {
+                    Success = false,
+                    Message = ex.Message,
+                    Data = false
+                };
+
+                return NotFound(response);
+            }
+            catch (Exception ex)
+            {
+                var response = new ResponseModel<bool>
+                {
+                    Success = false,
+                    Message = ex.Message,
+                    Data = false
+                };
+
+                return StatusCode(500, response);
+            }
+        }
+
+
+
+
+
     }
 }
