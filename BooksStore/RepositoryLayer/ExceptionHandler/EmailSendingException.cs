@@ -16,9 +16,6 @@ namespace RepositoryLayer.ExceptionHandler
         public EmailSendingException(string? message, Exception? innerException) : base(message, innerException)
         {
         }
-
-
-
         protected EmailSendingException(SerializationInfo info, StreamingContext context) : base(info, context)
         {
         }

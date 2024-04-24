@@ -137,14 +137,14 @@ namespace RepositoryLayer.Services
         {
             // Construct email body with OTP
             var emailBody = $@"
-        <html>
-            <body>
-                <p>Hello,</p>
-                <p>Please use the following OTP to reset your password vaild for 10 minutes:</p>
-                <p><strong>{otp}</strong></p>
-                <p>Thank you!</p>
-            </body>
-        </html>";
+                              <html>
+                                   <body>
+                                    <p>Hello,</p>
+                                    <p>Please use the following OTP to reset your password vaild for 10 minutes:</p>
+                                    <p><strong>{otp}</strong></p>
+                                    <p>Thank you!</p>
+                                   </body>
+                             </html>";
 
             // Send email
             await _emailService.SendEmailAsync(email, "Password Reset OTP", emailBody);
@@ -161,8 +161,6 @@ namespace RepositoryLayer.Services
 
         public async Task<bool> ResetPassword(ResetPasswordWithOTPModel resetPasswordWithOTPModel)
         {
-
-
             string email = resetPasswordWithOTPModel.Email;
             string storedOtp;
 
@@ -177,8 +175,6 @@ namespace RepositoryLayer.Services
             {
                 throw new InvalidOTPException("Invalid OTP");
             }
-
-
 
             // Reset the password in the database
             var query = @"UPDATE Customer SET password = @Password WHERE email = @Email;";
