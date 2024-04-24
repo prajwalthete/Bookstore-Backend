@@ -9,10 +9,12 @@
     public class ErrorHandlingMiddleware
     {
         private readonly RequestDelegate _next;
+        private readonly ILogger<ErrorHandlingMiddleware> _logger;
 
-        public ErrorHandlingMiddleware(RequestDelegate next)
+        public ErrorHandlingMiddleware(RequestDelegate next, ILogger<ErrorHandlingMiddleware> logger)
         {
             _next = next;
+            _logger = logger;
         }
 
         public async Task Invoke(HttpContext context)
@@ -24,7 +26,7 @@
             catch (Exception ex)
             {
                 // Log the exception
-                Console.WriteLine($"An error occurred: {ex}");
+                _logger.LogError(ex, "An error occurred during request processing.");
 
                 // Set the response status code
                 context.Response.StatusCode = StatusCodes.Status500InternalServerError;

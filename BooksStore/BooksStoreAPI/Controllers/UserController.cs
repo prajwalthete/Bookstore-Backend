@@ -9,12 +9,15 @@ namespace BooksStoreAPI.Controllers
     public class UserController : ControllerBase
     {
         private readonly ICustomerBL _customerBL;
+        private readonly ILogger<UserController> _logger;
 
-        public UserController(ICustomerBL customerBL)
+        public UserController(ICustomerBL customerBL, ILogger<UserController> logger)
         {
             _customerBL = customerBL;
+            _logger = logger;
         }
-        [HttpPost]
+
+        [HttpPost("register")]
         public async Task<IActionResult> Register(CustomerRegistrationModel customerRegistrationModel)
         {
             try
@@ -30,11 +33,12 @@ namespace BooksStoreAPI.Controllers
                     return Ok(response);
                 }
 
-                return BadRequest("invalid input");
-
+                return BadRequest("Invalid input");
             }
             catch (Exception ex)
             {
+                // Log the exception
+                _logger.LogError(ex, "Error occurred during customer registration");
 
                 var errorResponse = new ResponseModel<string>
                 {
@@ -44,8 +48,6 @@ namespace BooksStoreAPI.Controllers
                 };
                 return BadRequest(errorResponse);
             }
-
-
         }
     }
 }

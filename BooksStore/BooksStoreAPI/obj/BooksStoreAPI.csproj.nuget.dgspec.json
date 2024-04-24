@@ -63,6 +63,14 @@
               "target": "Package",
               "version": "[2.1.35, )"
             },
+            "NLog": {
+              "target": "Package",
+              "version": "[5.2.8, )"
+            },
+            "NLog.Web.AspNetCore": {
+              "target": "Package",
+              "version": "[5.3.8, )"
+            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
@@ -150,6 +158,14 @@
             "Dapper": {
               "target": "Package",
               "version": "[2.1.35, )"
+            },
+            "NLog": {
+              "target": "Package",
+              "version": "[5.2.8, )"
+            },
+            "NLog.Web.AspNetCore": {
+              "target": "Package",
+              "version": "[5.3.8, )"
             }
           },
           "imports": [
@@ -220,6 +236,14 @@
             "Dapper": {
               "target": "Package",
               "version": "[2.1.35, )"
+            },
+            "NLog": {
+              "target": "Package",
+              "version": "[5.2.8, )"
+            },
+            "NLog.Web.AspNetCore": {
+              "target": "Package",
+              "version": "[5.3.8, )"
             }
           },
           "imports": [
@@ -302,6 +326,14 @@
             "Microsoft.Extensions.Configuration.Abstractions": {
               "target": "Package",
               "version": "[8.0.0, )"
+            },
+            "NLog": {
+              "target": "Package",
+              "version": "[5.2.8, )"
+            },
+            "NLog.Web.AspNetCore": {
+              "target": "Package",
+              "version": "[5.3.8, )"
             }
           },
           "imports": [

@@ -1,11 +1,21 @@
 {
   "version": 2,
-  "dgSpecHash": "5VxA1v5JsMYPs/p6NZ5WIPKaAE9xNoHbKS/7uwinYkQgTRr2ZtGfloEzIqfsPdmD/zYDWOifjP8VpNNn8Ncjpw==",
+  "dgSpecHash": "vnNmfcYY1qH8Lx7OB9241EYGqVpLRYgyAkeW6Pow66LO4GDl+v8j6wQHF/UwWykVns11+hgEzjTiwt/GRbciUw==",
   "success": true,
   "projectFilePath": "E:\\.NET WORKSPACE-1\\Websites1\\2023\\2024\\BOOKS-STORE\\BooksStore Backend\\BooksStore\\ModelLayer\\ModelLayer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\prajw\\.nuget\\packages\\bcrypt.net-core\\1.6.0\\bcrypt.net-core.1.6.0.nupkg.sha512",
-    "C:\\Users\\prajw\\.nuget\\packages\\dapper\\2.1.35\\dapper.2.1.35.nupkg.sha512"
+    "C:\\Users\\prajw\\.nuget\\packages\\dapper\\2.1.35\\dapper.2.1.35.nupkg.sha512",
+    "C:\\Users\\prajw\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\8.0.0\\microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\prajw\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\8.0.0\\microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",
+    "C:\\Users\\prajw\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\prajw\\.nuget\\packages\\microsoft.extensions.logging\\8.0.0\\microsoft.extensions.logging.8.0.0.nupkg.sha512",
+    "C:\\Users\\prajw\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\prajw\\.nuget\\packages\\microsoft.extensions.options\\8.0.0\\microsoft.extensions.options.8.0.0.nupkg.sha512",
+    "C:\\Users\\prajw\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
+    "C:\\Users\\prajw\\.nuget\\packages\\nlog\\5.2.8\\nlog.5.2.8.nupkg.sha512",
+    "C:\\Users\\prajw\\.nuget\\packages\\nlog.extensions.logging\\5.3.8\\nlog.extensions.logging.5.3.8.nupkg.sha512",
+    "C:\\Users\\prajw\\.nuget\\packages\\nlog.web.aspnetcore\\5.3.8\\nlog.web.aspnetcore.5.3.8.nupkg.sha512"
   ],
   "logs": []
 }

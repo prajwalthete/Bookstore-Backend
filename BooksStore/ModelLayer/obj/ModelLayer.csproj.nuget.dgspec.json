@@ -52,6 +52,14 @@
             "Dapper": {
               "target": "Package",
               "version": "[2.1.35, )"
+            },
+            "NLog": {
+              "target": "Package",
+              "version": "[5.2.8, )"
+            },
+            "NLog.Web.AspNetCore": {
+              "target": "Package",
+              "version": "[5.3.8, )"
             }
           },
           "imports": [

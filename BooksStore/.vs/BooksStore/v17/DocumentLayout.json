@@ -7,16 +7,16 @@
       "RelativeMoniker": "D:0:0:{16BB1ED9-569F-4251-9D9F-EAAF0FC94855}|BooksStoreAPI\\BooksStoreAPI.csproj|solutionrelative:booksstoreapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{09F7FE54-6908-46A3-8107-75CE73E26CAA}|ModelLayer\\ModelLayer.csproj|e:\\.net workspace-1\\websites1\\2023\\2024\\books-store\\booksstore backend\\booksstore\\modellayer\\models\\responsemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{09F7FE54-6908-46A3-8107-75CE73E26CAA}|ModelLayer\\ModelLayer.csproj|solutionrelative:modellayer\\models\\responsemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{16BB1ED9-569F-4251-9D9F-EAAF0FC94855}|BooksStoreAPI\\BooksStoreAPI.csproj|e:\\.net workspace-1\\websites1\\2023\\2024\\books-store\\booksstore backend\\booksstore\\booksstoreapi\\middleware\\errorhandlingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{16BB1ED9-569F-4251-9D9F-EAAF0FC94855}|BooksStoreAPI\\BooksStoreAPI.csproj|solutionrelative:booksstoreapi\\middleware\\errorhandlingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{16BB1ED9-569F-4251-9D9F-EAAF0FC94855}|BooksStoreAPI\\BooksStoreAPI.csproj|e:\\.net workspace-1\\websites1\\2023\\2024\\books-store\\booksstore backend\\booksstore\\booksstoreapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{16BB1ED9-569F-4251-9D9F-EAAF0FC94855}|BooksStoreAPI\\BooksStoreAPI.csproj|solutionrelative:booksstoreapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{09F7FE54-6908-46A3-8107-75CE73E26CAA}|ModelLayer\\ModelLayer.csproj|e:\\.net workspace-1\\websites1\\2023\\2024\\books-store\\booksstore backend\\booksstore\\modellayer\\models\\responsemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{09F7FE54-6908-46A3-8107-75CE73E26CAA}|ModelLayer\\ModelLayer.csproj|solutionrelative:modellayer\\models\\responsemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2C7CD4E2-1E23-41B7-9434-4097CCBC6B4F}|RepositoryLayer\\RepositoryLayer.csproj|e:\\.net workspace-1\\websites1\\2023\\2024\\books-store\\booksstore backend\\booksstore\\repositorylayer\\services\\customerrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -29,10 +29,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{DCB52E33-FBE6-41FF-9690-FFBEE2826E1A}|BusinessLayer\\BusinessLayer.csproj|e:\\.net workspace-1\\websites1\\2023\\2024\\books-store\\booksstore backend\\booksstore\\businesslayer\\interfaces\\icustomerbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DCB52E33-FBE6-41FF-9690-FFBEE2826E1A}|BusinessLayer\\BusinessLayer.csproj|solutionrelative:businesslayer\\interfaces\\icustomerbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\.NET WORKSPACE-1\\Websites1\\2023\\2024\\BOOKS-STORE\\BooksStore Backend\\BooksStore\\RepositoryLayer\\SQLQuery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:RepositoryLayer\\SQLQuery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2C7CD4E2-1E23-41B7-9434-4097CCBC6B4F}|RepositoryLayer\\RepositoryLayer.csproj|e:\\.net workspace-1\\websites1\\2023\\2024\\books-store\\booksstore backend\\booksstore\\repositorylayer\\interfaces\\icustomerrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -55,12 +51,12 @@
       "RelativeMoniker": "D:0:0:{2C7CD4E2-1E23-41B7-9434-4097CCBC6B4F}|RepositoryLayer\\RepositoryLayer.csproj|solutionrelative:repositorylayer\\context\\bookstorecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\.NET WORKSPACE-1\\Websites1\\2023\\2024\\BOOKS-STORE\\BooksStore Backend\\BooksStore\\RepositoryLayer\\SQLQuery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:RepositoryLayer\\SQLQuery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
+      "AbsoluteMoniker": "D:0:0:{2C7CD4E2-1E23-41B7-9434-4097CCBC6B4F}|RepositoryLayer\\RepositoryLayer.csproj|e:\\.net workspace-1\\websites1\\2023\\2024\\books-store\\booksstore backend\\booksstore\\repositorylayer\\sqlquery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|",
+      "RelativeMoniker": "D:0:0:{2C7CD4E2-1E23-41B7-9434-4097CCBC6B4F}|RepositoryLayer\\RepositoryLayer.csproj|solutionrelative:repositorylayer\\sqlquery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\.NET WORKSPACE-1\\Websites1\\2023\\2024\\BOOKS-STORE\\BooksStore Backend\\BooksStore\\RepositoryLayer\\SQLQuery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|ResultFrame",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:RepositoryLayer\\SQLQuery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|ResultFrame"
+      "AbsoluteMoniker": "D:0:0:{2C7CD4E2-1E23-41B7-9434-4097CCBC6B4F}|RepositoryLayer\\RepositoryLayer.csproj|e:\\.net workspace-1\\websites1\\2023\\2024\\books-store\\booksstore backend\\booksstore\\repositorylayer\\sqlquery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
+      "RelativeMoniker": "D:0:0:{2C7CD4E2-1E23-41B7-9434-4097CCBC6B4F}|RepositoryLayer\\RepositoryLayer.csproj|solutionrelative:repositorylayer\\sqlquery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
     }
   ],
   "DocumentGroupContainers": [
@@ -94,20 +90,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "ErrorHandlingMiddleware.cs",
               "DocumentMoniker": "E:\\.NET WORKSPACE-1\\Websites1\\2023\\2024\\BOOKS-STORE\\BooksStore Backend\\BooksStore\\BooksStoreAPI\\Middleware\\ErrorHandlingMiddleware.cs",
               "RelativeDocumentMoniker": "BooksStoreAPI\\Middleware\\ErrorHandlingMiddleware.cs",
               "ToolTip": "E:\\.NET WORKSPACE-1\\Websites1\\2023\\2024\\BOOKS-STORE\\BooksStore Backend\\BooksStore\\BooksStoreAPI\\Middleware\\ErrorHandlingMiddleware.cs",
               "RelativeToolTip": "BooksStoreAPI\\Middleware\\ErrorHandlingMiddleware.cs",
-              "ViewState": "AQIAABgAAAAAAAAAAAAowCMAAAANAAAA",
+              "ViewState": "AQIAABsAAAAAAAAAAAAowBUAAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-24T08:05:44.684Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "ResponseModel.cs",
               "DocumentMoniker": "E:\\.NET WORKSPACE-1\\Websites1\\2023\\2024\\BOOKS-STORE\\BooksStore Backend\\BooksStore\\ModelLayer\\Models\\ResponseModel.cs",
               "RelativeDocumentMoniker": "ModelLayer\\Models\\ResponseModel.cs",
@@ -126,7 +122,7 @@
               "RelativeDocumentMoniker": "BooksStoreAPI\\Controllers\\UserController.cs",
               "ToolTip": "E:\\.NET WORKSPACE-1\\Websites1\\2023\\2024\\BOOKS-STORE\\BooksStore Backend\\BooksStore\\BooksStoreAPI\\Controllers\\UserController.cs",
               "RelativeToolTip": "BooksStoreAPI\\Controllers\\UserController.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAgwC0AAAANAAAA",
+              "ViewState": "AQIAABUAAAAAAAAAAAAowAkAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-24T07:45:53.401Z",
               "EditorCaption": ""
@@ -139,7 +135,7 @@
               "RelativeDocumentMoniker": "BusinessLayer\\Services\\CustomerBL.cs",
               "ToolTip": "E:\\.NET WORKSPACE-1\\Websites1\\2023\\2024\\BOOKS-STORE\\BooksStore Backend\\BooksStore\\BusinessLayer\\Services\\CustomerBL.cs",
               "RelativeToolTip": "BusinessLayer\\Services\\CustomerBL.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABEAAABDAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAIBMwBEAAABDAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-24T07:37:29.499Z",
               "EditorCaption": ""
@@ -172,31 +168,32 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\.NET WORKSPACE-1\\Websites1\\2023\\2024\\BOOKS-STORE\\BooksStore Backend\\BooksStore\\BooksStoreAPI\\Program.cs",
               "RelativeDocumentMoniker": "BooksStoreAPI\\Program.cs",
               "ToolTip": "E:\\.NET WORKSPACE-1\\Websites1\\2023\\2024\\BOOKS-STORE\\BooksStore Backend\\BooksStore\\BooksStoreAPI\\Program.cs",
               "RelativeToolTip": "BooksStoreAPI\\Program.cs",
-              "ViewState": "AQIAAAsAAAAAAAAAAAAuwCMAAAAVAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEQAAAAHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-24T06:51:34.727Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 12,
               "Title": "SQLQuery1.sql ",
               "DocumentMoniker": "E:\\.NET WORKSPACE-1\\Websites1\\2023\\2024\\BOOKS-STORE\\BooksStore Backend\\BooksStore\\RepositoryLayer\\SQLQuery1.sql",
               "RelativeDocumentMoniker": "RepositoryLayer\\SQLQuery1.sql",
-              "ToolTip": "SQLQuery1.sql ",
+              "ToolTip": "E:\\.NET WORKSPACE-1\\Websites1\\2023\\2024\\BOOKS-STORE\\BooksStore Backend\\BooksStore\\RepositoryLayer\\SQLQuery1.sql",
+              "RelativeToolTip": "RepositoryLayer\\SQLQuery1.sql",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
               "WhenOpened": "2024-04-24T07:50:39.326Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 7,
               "Title": "ICustomerRL.cs",
               "DocumentMoniker": "E:\\.NET WORKSPACE-1\\Websites1\\2023\\2024\\BOOKS-STORE\\BooksStore Backend\\BooksStore\\RepositoryLayer\\Interfaces\\ICustomerRL.cs",
               "RelativeDocumentMoniker": "RepositoryLayer\\Interfaces\\ICustomerRL.cs",
@@ -209,7 +206,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 8,
               "Title": "CustomerRegistrationModel.cs",
               "DocumentMoniker": "E:\\.NET WORKSPACE-1\\Websites1\\2023\\2024\\BOOKS-STORE\\BooksStore Backend\\BooksStore\\ModelLayer\\Models\\CustomerRegistrationModel.cs",
               "RelativeDocumentMoniker": "ModelLayer\\Models\\CustomerRegistrationModel.cs",
@@ -222,7 +219,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 10,
               "Title": "appsettings.json",
               "DocumentMoniker": "E:\\.NET WORKSPACE-1\\Websites1\\2023\\2024\\BOOKS-STORE\\BooksStore Backend\\BooksStore\\BooksStoreAPI\\appsettings.json",
               "RelativeDocumentMoniker": "BooksStoreAPI\\appsettings.json",
@@ -235,7 +232,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 11,
               "Title": "BookStoreContext.cs",
               "DocumentMoniker": "E:\\.NET WORKSPACE-1\\Websites1\\2023\\2024\\BOOKS-STORE\\BooksStore Backend\\BooksStore\\RepositoryLayer\\Context\\BookStoreContext.cs",
               "RelativeDocumentMoniker": "RepositoryLayer\\Context\\BookStoreContext.cs",
@@ -248,7 +245,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 9,
               "Title": "Customer.cs",
               "DocumentMoniker": "E:\\.NET WORKSPACE-1\\Websites1\\2023\\2024\\BOOKS-STORE\\BooksStore Backend\\BooksStore\\RepositoryLayer\\Entities\\Customer.cs",
               "RelativeDocumentMoniker": "RepositoryLayer\\Entities\\Customer.cs",
