@@ -1,0 +1,8 @@
+﻿CREATE TABLE Customer (
+    customer_id INT PRIMARY KEY IDENTITY,
+    name NVARCHAR(255) NOT NULL,
+    email NVARCHAR(255) NOT NULL,
+    phone NVARCHAR(20) NOT NULL,
+    password NVARCHAR(255) NOT NULL,
+    role NVARCHAR(50) NOT NULL
+);

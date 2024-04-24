@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "JfLTbA35VJqFMVEHnjcXNaz6vHmbf88sSHQ2OnL/uoscH0T+TSr7TkNG67MtASr/MQBEHALc+xsjva9iJxHG6Q==",
+  "dgSpecHash": "5VxA1v5JsMYPs/p6NZ5WIPKaAE9xNoHbKS/7uwinYkQgTRr2ZtGfloEzIqfsPdmD/zYDWOifjP8VpNNn8Ncjpw==",
   "success": true,
   "projectFilePath": "E:\\.NET WORKSPACE-1\\Websites1\\2023\\2024\\BOOKS-STORE\\BooksStore Backend\\BooksStore\\ModelLayer\\ModelLayer.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\prajw\\.nuget\\packages\\bcrypt.net-core\\1.6.0\\bcrypt.net-core.1.6.0.nupkg.sha512",
+    "C:\\Users\\prajw\\.nuget\\packages\\dapper\\2.1.35\\dapper.2.1.35.nupkg.sha512"
+  ],
   "logs": []
 }
