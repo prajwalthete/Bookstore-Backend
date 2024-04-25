@@ -8,5 +8,6 @@ namespace BusinessLayer.Interfaces
         public Task<Book> AddBook(BookAddModel bookAddModel);
         public Task<IEnumerable<Book>> GetAllBooks();
         public Task<Book> UpdateBook(int bookId, UpdateBookModel updateBookModel);
+        public Task<bool> DeleteBook(int bookId);
     }
 }

@@ -147,6 +147,34 @@ namespace BooksStoreAPI.Controllers
             }
         }
 
+        [Authorize(Roles = "admin")]
+        [HttpDelete("{bookId}")]
+        public async Task<IActionResult> DeleteBook(int bookId)
+        {
+            try
+            {
+                var deleted = await _bookBL.DeleteBook(bookId);
+
+                if (deleted)
+                {
+
+                    _logger.LogInformation($"Book with ID {bookId} deleted successfully.");
+
+                    return Ok(new { Success = true, Message = "Book deleted successfully" });
+                }
+                else
+                {
+                    return NotFound(new { Success = false, Message = $"Book with ID {bookId} not found" });
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"An error occurred while deleting book with ID {bookId}");
+
+                return StatusCode(500, new { Success = false, Message = "An error occurred while deleting book", Error = ex.Message });
+            }
+        }
+
 
     }
 }

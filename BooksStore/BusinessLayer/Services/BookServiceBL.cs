@@ -28,5 +28,9 @@ namespace BusinessLayer.Services
         {
             return _bookRL.UpdateBook(bookId, updateBookModel);
         }
+        public Task<bool> DeleteBook(int bookId)
+        {
+            return (_bookRL.DeleteBook(bookId));
+        }
     }
 }

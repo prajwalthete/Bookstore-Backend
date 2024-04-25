@@ -41,6 +41,8 @@ namespace RepositoryLayer.Services
             }
         }
 
+
+
         public async Task<IEnumerable<Book>> GetAllBooks()
         {
             try
@@ -100,5 +102,26 @@ namespace RepositoryLayer.Services
                 throw new Exception("Error occurred while updating book", ex);
             }
         }
+
+        public async Task<bool> DeleteBook(int bookId)
+        {
+            try
+            {
+                string deleteQuery = @"DELETE FROM Book WHERE book_id = @BookId";
+
+                using (var connection = _context.CreateConnection())
+                {
+                    int rowsAffected = await connection.ExecuteAsync(deleteQuery, new { BookId = bookId });
+
+                    // If any row is affected, return true indicating successful deletion
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error occurred while deleting book", ex);
+            }
+        }
+
     }
 }
