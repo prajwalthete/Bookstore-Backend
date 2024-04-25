@@ -123,5 +123,46 @@ namespace BooksStoreAPI.Controllers
             }
         }
 
+        [Authorize]
+        [HttpPut("{orderId}")]
+        public async Task<IActionResult> UpdateOrder(int orderId, PlaceOrderModel updatedOrderModel)
+        {
+            try
+            {
+                var updatedOrder = await _orderBL.UpdateOrder(orderId, updatedOrderModel);
+                if (updatedOrder != null)
+                {
+                    _logger.LogInformation($"Order with ID {orderId} updated successfully.");
+                    return Ok(new
+                    {
+                        Success = true,
+                        Message = "Order updated successfully",
+                        Data = updatedOrder
+                    });
+                }
+                else
+                {
+                    _logger.LogError($"Failed to update order with ID {orderId}. Order not found.");
+                    return NotFound(new
+                    {
+                        Success = false,
+                        Message = $"Order with ID {orderId} not found"
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"An error occurred while updating order with ID {orderId}.");
+                return StatusCode(500, new
+                {
+                    Success = false,
+                    Message = "An error occurred while updating the order",
+                    Error = ex.Message
+                });
+            }
+        }
+
+
+
     }
 }

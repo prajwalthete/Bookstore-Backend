@@ -28,5 +28,10 @@ namespace BusinessLayer.Services
         {
             return _orderRL.PlaceOrder(placeOrderModel, customerid);
         }
+
+        public Task<Order> UpdateOrder(int orderId, PlaceOrderModel updatedOrder)
+        {
+            return _orderRL.UpdateOrder(orderId, updatedOrder);
+        }
     }
 }

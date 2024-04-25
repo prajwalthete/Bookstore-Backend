@@ -88,5 +88,39 @@ namespace RepositoryLayer.Services
             }
         }
 
+
+        public async Task<Order> UpdateOrder(int orderId, PlaceOrderModel updatedOrderModel)
+        {
+            try
+            {
+                string query = @"UPDATE [Order] SET order_date = @OrderDate, address = @Address  WHERE order_id = @OrderId";
+
+                // Execute the update query
+                using (var connection = _context.CreateConnection())
+                {
+                    await connection.ExecuteAsync(query, new
+                    {
+                        OrderDate = DateTime.Now,
+                        updatedOrderModel.address,
+                        OrderId = orderId
+                    });
+                }
+
+                // Retrieve the updated order
+                string selectQuery = "SELECT * FROM [Order] WHERE order_id = @OrderId";
+                using (var connection = _context.CreateConnection())
+                {
+                    var updatedOrder = await connection.QueryFirstOrDefaultAsync<Order>(selectQuery, new { OrderId = orderId });
+                    return updatedOrder;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error occurred while updating the order", ex);
+            }
+        }
+
+
+
     }
 }
