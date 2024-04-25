@@ -17,3 +17,12 @@ CREATE TABLE Book (
 );
 
 
+-- Creating Order table with address attribute
+CREATE TABLE [Order] (
+    order_id INT PRIMARY KEY IDENTITY,
+    customer_id INT,
+    order_date DATETIME,
+    address VARCHAR(255),
+    FOREIGN KEY (customer_id) REFERENCES Customer(customer_id)
+);
+
