@@ -40,5 +40,25 @@ namespace RepositoryLayer.Services
             }
         }
 
+        public async Task<IEnumerable<Book>> GetAllBooks()
+        {
+            try
+            {
+
+                string query = "SELECT * FROM Book";
+
+
+                using (var connection = _context.CreateConnection())
+                {
+                    IEnumerable<Book> books = await connection.QueryAsync<Book>(query);
+                    return books;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Error occurred while retrieving all books", ex);
+            }
+        }
     }
 }

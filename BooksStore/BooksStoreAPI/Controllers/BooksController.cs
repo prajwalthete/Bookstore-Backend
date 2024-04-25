@@ -1,6 +1,8 @@
 ﻿using BusinessLayer.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ModelLayer.Models.Book;
+using System.Security.Claims;
 
 namespace BooksStoreAPI.Controllers
 {
@@ -17,14 +19,28 @@ namespace BooksStoreAPI.Controllers
             _bookBL = bookBL;
         }
 
-
+        [Authorize(Roles = "admin")]
         [HttpPost]
         public async Task<IActionResult> AddBook([FromBody] BookAddModel bookAddModel)
         {
             try
             {
+                var userRole = User.FindFirstValue(ClaimTypes.Role);
+
+                //if (!userRole.Equals("admin"))
+                //{
+
+                //    var errorResponse = new
+                //    {
+                //        Success = false,
+                //        Message = "An error occurred while adding book Only Admin Can Add The Books",
+                //    };
+
+                //    return StatusCode(500, errorResponse);
+                //}
                 if (bookAddModel == null)
                 {
+
                     return BadRequest("Book object is null");
                 }
 
@@ -50,6 +66,37 @@ namespace BooksStoreAPI.Controllers
                 {
                     Success = false,
                     Message = "An error occurred while adding book",
+                    Error = ex.Message
+                };
+
+                return StatusCode(500, errorResponse);
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllBooks()
+        {
+            try
+            {
+                var books = await _bookBL.GetAllBooks();
+
+                var response = new
+                {
+                    Success = true,
+                    Message = "Books retrieved successfully",
+                    Data = books
+                };
+
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred while retrieving books");
+
+                var errorResponse = new
+                {
+                    Success = false,
+                    Message = "An error occurred while retrieving books",
                     Error = ex.Message
                 };
 

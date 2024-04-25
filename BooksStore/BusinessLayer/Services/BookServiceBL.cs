@@ -18,5 +18,10 @@ namespace BusinessLayer.Services
         {
             return _bookRL.AddBook(bookAddModel);
         }
+
+        public Task<IEnumerable<Book>> GetAllBooks()
+        {
+            return _bookRL.GetAllBooks();
+        }
     }
 }
