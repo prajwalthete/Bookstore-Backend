@@ -90,6 +90,38 @@ namespace BooksStoreAPI.Controllers
             }
         }
 
+        [Authorize]
+        [HttpGet]
+        public async Task<IActionResult> GetAllOrders()
+        {
+            try
+            {
+                var orders = await _orderBL.GetAllOrders();
+
+                _logger.LogInformation("Successfully retrieved all orders");
+
+                var response = new
+                {
+                    Success = true,
+                    Message = "All orders retrieved successfully",
+                    Data = orders
+                };
+
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred while retrieving all orders");
+
+                var errorResponse = new
+                {
+                    Success = false,
+                    Message = "An error occurred while retrieving orders",
+                    Error = ex.Message
+                };
+                return StatusCode(500, errorResponse);
+            }
+        }
 
     }
 }

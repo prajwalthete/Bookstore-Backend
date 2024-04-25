@@ -7,5 +7,7 @@ namespace RepositoryLayer.Interfaces
     {
         public Task<Order> PlaceOrder(PlaceOrderModel placeOrderModel, int customerid);
         public Task<IEnumerable<Order>> GetOrdersByCustomerId(int customerId);
+
+        public Task<IEnumerable<Order>> GetAllOrders();
     }
 }

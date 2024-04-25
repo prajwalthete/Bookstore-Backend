@@ -69,6 +69,24 @@ namespace RepositoryLayer.Services
             }
         }
 
+        public async Task<IEnumerable<Order>> GetAllOrders()
+        {
+            try
+            {
+                string query = "SELECT * FROM [Order]";
+
+
+                using (var connection = _context.CreateConnection())
+                {
+                    IEnumerable<Order> orders = await connection.QueryAsync<Order>(query);
+                    return orders;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error occurred while retrieving all orders", ex);
+            }
+        }
 
     }
 }
