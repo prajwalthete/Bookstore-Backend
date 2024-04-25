@@ -13,10 +13,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{2C7CD4E2-1E23-41B7-9434-4097CCBC6B4F}|RepositoryLayer\\RepositoryLayer.csproj|e:\\.net workspace-1\\websites1\\2023\\2024\\books-store\\booksstore backend\\booksstore\\repositorylayer\\sqlquery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|",
       "RelativeMoniker": "D:0:0:{2C7CD4E2-1E23-41B7-9434-4097CCBC6B4F}|RepositoryLayer\\RepositoryLayer.csproj|solutionrelative:repositorylayer\\sqlquery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2C7CD4E2-1E23-41B7-9434-4097CCBC6B4F}|RepositoryLayer\\RepositoryLayer.csproj|e:\\.net workspace-1\\websites1\\2023\\2024\\books-store\\booksstore backend\\booksstore\\repositorylayer\\sqlquery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame",
-      "RelativeMoniker": "D:0:0:{2C7CD4E2-1E23-41B7-9434-4097CCBC6B4F}|RepositoryLayer\\RepositoryLayer.csproj|solutionrelative:repositorylayer\\sqlquery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|CodeFrame"
     }
   ],
   "DocumentGroupContainers": [
@@ -56,7 +52,7 @@
               "RelativeDocumentMoniker": "BooksStoreAPI\\Controllers\\UserController.cs",
               "ToolTip": "E:\\.NET WORKSPACE-1\\Websites1\\2023\\2024\\BOOKS-STORE\\BooksStore Backend\\BooksStore\\BooksStoreAPI\\Controllers\\UserController.cs",
               "RelativeToolTip": "BooksStoreAPI\\Controllers\\UserController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAfAAAA",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAzwBUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-24T07:45:53.401Z",
               "EditorCaption": ""
@@ -71,20 +67,18 @@
               "RelativeToolTip": "RepositoryLayer\\Services\\CustomerRL.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAH4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-24T07:10:40.491Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-24T07:10:40.491Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "SQLQuery1.sql ",
+              "Title": "SQLQuery1.sql",
               "DocumentMoniker": "E:\\.NET WORKSPACE-1\\Websites1\\2023\\2024\\BOOKS-STORE\\BooksStore Backend\\BooksStore\\RepositoryLayer\\SQLQuery1.sql",
               "RelativeDocumentMoniker": "RepositoryLayer\\SQLQuery1.sql",
               "ToolTip": "E:\\.NET WORKSPACE-1\\Websites1\\2023\\2024\\BOOKS-STORE\\BooksStore Backend\\BooksStore\\RepositoryLayer\\SQLQuery1.sql",
               "RelativeToolTip": "RepositoryLayer\\SQLQuery1.sql",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2024-04-24T07:50:39.326Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-24T07:50:39.326Z"
             }
           ]
         }
