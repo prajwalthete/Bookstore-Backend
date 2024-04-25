@@ -163,6 +163,48 @@ namespace BooksStoreAPI.Controllers
         }
 
 
+        [Authorize]
+        [HttpDelete("{orderId}")]
+        public async Task<IActionResult> DeleteOrder(int orderId)
+        {
+            try
+            {
+                var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                int customerId = Convert.ToInt32(userIdClaim);
+                bool isDeleted = await _orderBL.DeleteOrder(orderId, customerId);
+                if (isDeleted)
+                {
+                    _logger.LogInformation($"Order with ID {orderId} deleted successfully.");
+                    var response = new
+                    {
+                        Success = true,
+                        Message = $"Order with ID {orderId} deleted successfully.",
+                        Data = true
+                    };
+                    return Ok(response);
+                }
+                else
+                {
+                    _logger.LogWarning($"Order with ID {orderId} not found or could not be deleted.");
+                    var response = new
+                    {
+                        Success = false,
+                        Message = $"Order with ID {orderId} not found or could not be deleted."
+                    };
+                    return NotFound(response);
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"An error occurred while deleting order with ID {orderId}: {ex.Message}");
+                var response = new
+                {
+                    Success = false,
+                    Message = $"An error occurred while deleting order with ID {orderId}."
+                };
+                return StatusCode(500, response);
+            }
+        }
 
     }
 }

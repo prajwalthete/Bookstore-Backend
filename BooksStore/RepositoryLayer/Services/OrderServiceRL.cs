@@ -120,7 +120,24 @@ namespace RepositoryLayer.Services
             }
         }
 
+        public async Task<bool> DeleteOrder(int orderId, int customerId)
+        {
+            try
+            {
+                string query = "DELETE FROM [Order] WHERE order_id = @OrderId AND customer_id = @CustomerId";
 
+
+                using (var connection = _context.CreateConnection())
+                {
+                    int rowsAffected = await connection.ExecuteAsync(query, new { OrderId = orderId, CustomerId = customerId });
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error occurred while deleting the order", ex);
+            }
+        }
 
     }
 }

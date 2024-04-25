@@ -10,5 +10,8 @@ namespace RepositoryLayer.Interfaces
 
         public Task<IEnumerable<Order>> GetAllOrders();
         public Task<Order> UpdateOrder(int orderId, PlaceOrderModel updatedOrder);
+
+        public Task<bool> DeleteOrder(int orderId, int customerId);
     }
+
 }

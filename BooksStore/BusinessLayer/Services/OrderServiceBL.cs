@@ -14,6 +14,11 @@ namespace BusinessLayer.Services
             _orderRL = orderRL;
         }
 
+        public Task<bool> DeleteOrder(int orderId, int customerId)
+        {
+            return _orderRL.DeleteOrder(orderId, customerId);
+        }
+
         public Task<IEnumerable<Order>> GetAllOrders()
         {
             return _orderRL.GetAllOrders();
