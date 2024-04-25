@@ -32,5 +32,10 @@ namespace BusinessLayer.Services
         {
             return (_bookRL.DeleteBook(bookId));
         }
+
+        public Task<Book> GetBookById(int bookId)
+        {
+            return _bookRL.GetBookById(bookId);
+        }
     }
 }

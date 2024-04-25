@@ -130,7 +130,7 @@
               "RelativeDocumentMoniker": "BooksStoreAPI\\Controllers\\BooksController.cs",
               "ToolTip": "E:\\.NET WORKSPACE-1\\Websites1\\2023\\2024\\BOOKS-STORE\\BooksStore Backend\\BooksStore\\BooksStoreAPI\\Controllers\\BooksController.cs",
               "RelativeToolTip": "BooksStoreAPI\\Controllers\\BooksController.cs",
-              "ViewState": "AQIAAIUAAAAAAAAAAAAcwJUAAAAkAAAA",
+              "ViewState": "AQIAALUAAAAAAAAAAAAmwMcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-25T05:48:14.146Z",
               "EditorCaption": ""
@@ -143,7 +143,7 @@
               "RelativeDocumentMoniker": "BusinessLayer\\Services\\BookServiceBL.cs",
               "ToolTip": "E:\\.NET WORKSPACE-1\\Websites1\\2023\\2024\\BOOKS-STORE\\BooksStore Backend\\BooksStore\\BusinessLayer\\Services\\BookServiceBL.cs",
               "RelativeToolTip": "BusinessLayer\\Services\\BookServiceBL.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAJAAAA",
+              "ViewState": "AQIAABUAAAAAAAAAAAAowCQAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-25T05:45:49.635Z",
               "EditorCaption": ""
@@ -156,7 +156,7 @@
               "RelativeDocumentMoniker": "RepositoryLayer\\Services\\BookServiceRL.cs",
               "ToolTip": "E:\\.NET WORKSPACE-1\\Websites1\\2023\\2024\\BOOKS-STORE\\BooksStore Backend\\BooksStore\\RepositoryLayer\\Services\\BookServiceRL.cs",
               "RelativeToolTip": "RepositoryLayer\\Services\\BookServiceRL.cs",
-              "ViewState": "AQIAAF0AAAAAAAAAAAAIwGkAAAA2AAAA",
+              "ViewState": "AQIAAHkAAAAAAAAAAAAIwH4AAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-25T05:36:24.544Z",
               "EditorCaption": ""
@@ -169,7 +169,7 @@
               "RelativeDocumentMoniker": "RepositoryLayer\\Interfaces\\IBookRL.cs",
               "ToolTip": "E:\\.NET WORKSPACE-1\\Websites1\\2023\\2024\\BOOKS-STORE\\BooksStore Backend\\BooksStore\\RepositoryLayer\\Interfaces\\IBookRL.cs",
               "RelativeToolTip": "RepositoryLayer\\Interfaces\\IBookRL.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-25T05:33:38.607Z",
               "EditorCaption": ""
@@ -182,7 +182,7 @@
               "RelativeDocumentMoniker": "BusinessLayer\\Interfaces\\IBookBL.cs",
               "ToolTip": "E:\\.NET WORKSPACE-1\\Websites1\\2023\\2024\\BOOKS-STORE\\BooksStore Backend\\BooksStore\\BusinessLayer\\Interfaces\\IBookBL.cs",
               "RelativeToolTip": "BusinessLayer\\Interfaces\\IBookBL.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAxAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-25T05:45:23.769Z",
               "EditorCaption": ""

@@ -175,6 +175,28 @@ namespace BooksStoreAPI.Controllers
             }
         }
 
+        [HttpGet("{bookId}")]
+        public async Task<IActionResult> GetBookById(int bookId)
+        {
+            try
+            {
+                var book = await _bookBL.GetBookById(bookId);
+                if (book == null)
+                {
+                    _logger.LogWarning($"Book with ID {bookId} not found");
+                    return NotFound(new { Success = false, Message = $"Book with ID {bookId} not found" });
+                }
+
+                _logger.LogInformation($"Retrieved book with ID {bookId}");
+                return Ok(new { Success = true, Message = "Book Retrieved successfully", data = book });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"An error occurred while retrieving book with ID {bookId}");
+                return StatusCode(500, new { Success = false, Message = "An error occurred while retrieving book", Error = ex.Message });
+            }
+        }
+
 
     }
 }

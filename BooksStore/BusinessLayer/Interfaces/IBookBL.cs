@@ -6,6 +6,7 @@ namespace BusinessLayer.Interfaces
     public interface IBookBL
     {
         public Task<Book> AddBook(BookAddModel bookAddModel);
+        public Task<Book> GetBookById(int bookId);
         public Task<IEnumerable<Book>> GetAllBooks();
         public Task<Book> UpdateBook(int bookId, UpdateBookModel updateBookModel);
         public Task<bool> DeleteBook(int bookId);

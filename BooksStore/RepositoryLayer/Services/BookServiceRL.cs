@@ -123,5 +123,22 @@ namespace RepositoryLayer.Services
             }
         }
 
+        public async Task<Book> GetBookById(int bookId)
+        {
+            try
+            {
+                string query = "SELECT * FROM Book WHERE book_id = @BookId";
+
+                using (var connection = _context.CreateConnection())
+                {
+                    return await connection.QueryFirstOrDefaultAsync<Book>(query, new { BookId = bookId });
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions appropriately
+                throw new Exception($"Error occurred while retrieving book with ID {bookId}", ex);
+            }
+        }
     }
 }
