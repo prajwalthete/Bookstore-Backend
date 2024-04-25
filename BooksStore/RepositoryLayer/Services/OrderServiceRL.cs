@@ -50,5 +50,25 @@ namespace RepositoryLayer.Services
             }
         }
 
+        public async Task<IEnumerable<Order>> GetOrdersByCustomerId(int customerId)
+        {
+            try
+            {
+                string query = "SELECT * FROM [Order] WHERE customer_id = @CustomerId";
+
+                // Execute the query and retrieve the orders
+                using (var connection = _context.CreateConnection())
+                {
+                    IEnumerable<Order> orders = await connection.QueryAsync<Order>(query, new { CustomerId = customerId });
+                    return orders;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error occurred while retrieving orders by customer ID", ex);
+            }
+        }
+
+
     }
 }

@@ -32,7 +32,7 @@ namespace BooksStoreAPI.Controllers
 
                 var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
                 int customerid = Convert.ToInt32(userIdClaim);
-                await Console.Out.WriteLineAsync(customerid.ToString());
+
 
                 var placedOrder = await _orderBL.PlaceOrder(placeOrderModel, customerid);
 
@@ -62,5 +62,34 @@ namespace BooksStoreAPI.Controllers
                 return StatusCode(500, errorResponse);
             }
         }
+
+        [Authorize]
+        [HttpGet("GetOrderByCustomerId")]
+        public async Task<IActionResult> GetOrdersByCustomerId()
+        {
+            try
+            {
+
+                var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                int customerId = Convert.ToInt32(userIdClaim);
+                var orders = await _orderBL.GetOrdersByCustomerId(customerId);
+
+                var response = new
+                {
+                    Success = true,
+                    Message = "Orders retrieved successfully",
+                    Data = orders
+                };
+
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error occurred while retrieving orders by customer ID");
+                return StatusCode(500, "An error occurred while retrieving orders by customer ID");
+            }
+        }
+
+
     }
 }

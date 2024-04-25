@@ -14,6 +14,11 @@ namespace BusinessLayer.Services
             _orderRL = orderRL;
         }
 
+        public Task<IEnumerable<Order>> GetOrdersByCustomerId(int customerId)
+        {
+            return _orderRL.GetOrdersByCustomerId(customerId);
+        }
+
         public Task<Order> PlaceOrder(PlaceOrderModel placeOrderModel, int customerid)
         {
             return _orderRL.PlaceOrder(placeOrderModel, customerid);
