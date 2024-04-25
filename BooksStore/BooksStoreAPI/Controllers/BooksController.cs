@@ -19,9 +19,11 @@ namespace BooksStoreAPI.Controllers
             _bookBL = bookBL;
         }
 
+
+
         [Authorize(Roles = "admin")]
         [HttpPost]
-        public async Task<IActionResult> AddBook([FromBody] BookAddModel bookAddModel)
+        public async Task<IActionResult> AddBook(BookAddModel bookAddModel)
         {
             try
             {
@@ -72,6 +74,7 @@ namespace BooksStoreAPI.Controllers
                 return StatusCode(500, errorResponse);
             }
         }
+
 
         [HttpGet]
         public async Task<IActionResult> GetAllBooks()

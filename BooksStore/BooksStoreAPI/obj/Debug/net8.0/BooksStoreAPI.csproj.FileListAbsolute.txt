@@ -80,3 +80,4 @@ E:\.NET WORKSPACE-1\Websites1\2023\2024\BOOKS-STORE\BooksStore Backend\BooksStor
 E:\.NET WORKSPACE-1\Websites1\2023\2024\BOOKS-STORE\BooksStore Backend\BooksStore\BooksStoreAPI\bin\Debug\net8.0\NLog.Extensions.Logging.dll
 E:\.NET WORKSPACE-1\Websites1\2023\2024\BOOKS-STORE\BooksStore Backend\BooksStore\BooksStoreAPI\bin\Debug\net8.0\NLog.Web.AspNetCore.dll
 E:\.NET WORKSPACE-1\Websites1\2023\2024\BOOKS-STORE\BooksStore Backend\BooksStore\BooksStoreAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+E:\.NET WORKSPACE-1\Websites1\2023\2024\BOOKS-STORE\BooksStore Backend\BooksStore\BooksStoreAPI\bin\Debug\net8.0\BooksStoreAPI.staticwebassets.runtime.json

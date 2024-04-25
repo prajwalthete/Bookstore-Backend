@@ -1,11 +1,19 @@
 {
   "Version": 1,
-  "Hash": "9byR10t1iW5ToJTXwyAR/Bl3fcxVUXI6jRMskg7VjWY=",
+  "Hash": "nbRV1hbeB0UGCBshQXUcZCJ2UUHT6zOCFbpmRS4miQY=",
   "Source": "BooksStoreAPI",
   "BasePath": "_content/BooksStoreAPI",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "BooksStoreAPI\\wwwroot",
+      "Source": "BooksStoreAPI",
+      "ContentRoot": "E:\\.NET WORKSPACE-1\\Websites1\\2023\\2024\\BOOKS-STORE\\BooksStore Backend\\BooksStore\\BooksStoreAPI\\wwwroot\\",
+      "BasePath": "_content/BooksStoreAPI",
+      "Pattern": "**"
+    }
+  ],
   "Assets": []
 }

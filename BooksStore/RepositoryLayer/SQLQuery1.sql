@@ -12,5 +12,8 @@ CREATE TABLE Book (
     title VARCHAR(255),
     author VARCHAR(255),
     genre VARCHAR(100),
-    price DECIMAL(10, 2)
+    price DECIMAL(10, 2),
+    ImagePath VARCHAR(255) -- Add this column to store the path of the image
 );
+
+

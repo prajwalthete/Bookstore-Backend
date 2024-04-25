@@ -15,11 +15,12 @@ namespace RepositoryLayer.Services
             _context = context;
         }
 
+
         public async Task<Book> AddBook(BookAddModel bookAddModel)
         {
             try
             {
-                string query = @" INSERT INTO Book (title, author, genre, price) VALUES (@Title, @Author, @Genre, @Price);
+                string query = @" INSERT INTO Book (title, author, genre, price, ImagePath) VALUES (@Title, @Author, @Genre, @Price, @ImagePath);
                                   SELECT SCOPE_IDENTITY();"; // Retrieve the ID of the inserted book
 
                 // Execute the query and retrieve the inserted book's ID
