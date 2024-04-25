@@ -107,5 +107,46 @@ namespace BooksStoreAPI.Controllers
             }
         }
 
+        [Authorize(Roles = "admin")]
+        [HttpPut("{bookId}")]
+        public async Task<IActionResult> UpdateBook(int bookId, [FromBody] UpdateBookModel updateBookModel)
+        {
+            try
+            {
+                if (updateBookModel == null)
+                {
+                    return BadRequest("Book object is null");
+                }
+
+                var updatedBook = await _bookBL.UpdateBook(bookId, updateBookModel);
+
+                _logger.LogInformation($"Book '{updatedBook.title}' updated successfully.");
+
+                var response = new
+                {
+                    Success = true,
+                    Message = "Book updated successfully",
+                    Data = updatedBook
+                };
+
+                return Ok(response);
+            }
+
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred while updating book");
+
+                var errorResponse = new
+                {
+                    Success = false,
+                    Message = "An error occurred while updating book",
+                    Error = ex.Message
+                };
+
+                return StatusCode(500, errorResponse);
+            }
+        }
+
+
     }
 }

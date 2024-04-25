@@ -23,5 +23,10 @@ namespace BusinessLayer.Services
         {
             return _bookRL.GetAllBooks();
         }
+
+        public Task<Book> UpdateBook(int bookId, UpdateBookModel updateBookModel)
+        {
+            return _bookRL.UpdateBook(bookId, updateBookModel);
+        }
     }
 }

@@ -61,5 +61,44 @@ namespace RepositoryLayer.Services
                 throw new Exception("Error occurred while retrieving all books", ex);
             }
         }
+
+        public async Task<Book> UpdateBook(int bookId, UpdateBookModel updateBookModel)
+        {
+            try
+            {
+                string updateQuery = @"UPDATE Book SET 
+                               title = @Title,
+                               author = @Author,
+                               genre = @Genre,
+                               price = @Price,
+                               ImagePath = @ImagePath
+                               WHERE book_id = @BookId";
+
+
+                using (var connection = _context.CreateConnection())
+                {
+                    await connection.ExecuteAsync(updateQuery, new
+                    {
+                        updateBookModel.title,
+                        updateBookModel.author,
+                        updateBookModel.genre,
+                        updateBookModel.price,
+                        updateBookModel.ImagePath,
+                        BookId = bookId
+                    });
+
+                    // Retrieve the updated book from the database
+                    string selectQuery = "SELECT * FROM Book WHERE book_id = @BookId";
+                    var updatedBook = await connection.QueryFirstOrDefaultAsync<Book>(selectQuery, new { BookId = bookId });
+
+                    return updatedBook;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions appropriately
+                throw new Exception("Error occurred while updating book", ex);
+            }
+        }
     }
 }
