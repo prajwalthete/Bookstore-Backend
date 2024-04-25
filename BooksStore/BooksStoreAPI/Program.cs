@@ -39,6 +39,9 @@ try
     builder.Services.AddScoped<IEmailRL, EmailServiceRL>();
     builder.Services.AddScoped(sp => sp.GetRequiredService<IOptions<EmailSettings>>().Value);
 
+    builder.Services.AddScoped<IBookBL, BookServiceBL>();
+    builder.Services.AddScoped<IBookRL, BookServiceRL>();
+
     // Get the secret key from the configuration
     var key = Encoding.ASCII.GetBytes(builder.Configuration["JwtSettings:Secret"]);
 
