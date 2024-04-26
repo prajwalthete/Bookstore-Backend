@@ -36,3 +36,9 @@ CREATE TABLE OrderItem (
     FOREIGN KEY (book_id) REFERENCES Book(book_id)
 );
 
+-- Creating ShoppingCart table
+CREATE TABLE ShoppingCart (
+    cart_id INT PRIMARY KEY IDENTITY,
+    customer_id INT,
+    FOREIGN KEY (customer_id) REFERENCES Customer(customer_id)
+);

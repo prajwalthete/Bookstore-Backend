@@ -129,7 +129,9 @@ namespace BooksStoreAPI.Controllers
         {
             try
             {
-                var updatedOrder = await _orderBL.UpdateOrder(orderId, updatedOrderModel);
+                var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                int customerId = Convert.ToInt32(userIdClaim);
+                var updatedOrder = await _orderBL.UpdateOrder(orderId, customerId, updatedOrderModel);
                 if (updatedOrder != null)
                 {
                     _logger.LogInformation($"Order with ID {orderId} updated successfully.");

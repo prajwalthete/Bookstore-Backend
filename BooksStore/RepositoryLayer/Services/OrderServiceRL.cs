@@ -89,11 +89,11 @@ namespace RepositoryLayer.Services
         }
 
 
-        public async Task<Order> UpdateOrder(int orderId, PlaceOrderModel updatedOrderModel)
+        public async Task<Order> UpdateOrder(int orderId, int customerId, PlaceOrderModel updatedOrderModel)
         {
             try
             {
-                string query = @"UPDATE [Order] SET order_date = @OrderDate, address = @Address  WHERE order_id = @OrderId";
+                string query = @"UPDATE [Order] SET order_date = @OrderDate, address = @Address  WHERE order_id = @OrderId AND customer_id = @CustomerId";
 
                 // Execute the update query
                 using (var connection = _context.CreateConnection())
@@ -102,15 +102,16 @@ namespace RepositoryLayer.Services
                     {
                         OrderDate = DateTime.Now,
                         updatedOrderModel.address,
-                        OrderId = orderId
+                        OrderId = orderId,
+                        CustomerId = customerId
                     });
                 }
 
                 // Retrieve the updated order
-                string selectQuery = "SELECT * FROM [Order] WHERE order_id = @OrderId";
+                string selectQuery = "SELECT * FROM [Order] WHERE order_id = @OrderId AND customer_id = @CustomerId";
                 using (var connection = _context.CreateConnection())
                 {
-                    var updatedOrder = await connection.QueryFirstOrDefaultAsync<Order>(selectQuery, new { OrderId = orderId });
+                    var updatedOrder = await connection.QueryFirstOrDefaultAsync<Order>(selectQuery, new { OrderId = orderId, CustomerId = customerId });
                     return updatedOrder;
                 }
             }
