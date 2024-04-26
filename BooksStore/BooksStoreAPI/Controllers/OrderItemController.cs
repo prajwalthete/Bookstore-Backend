@@ -67,5 +67,32 @@ namespace BooksStoreAPI.Controllers
                 return StatusCode(500, new { success = false, message = "Internal server error" });
             }
         }
+
+        [Authorize]
+        [HttpPut("{orderItemId}")]
+        public async Task<IActionResult> UpdateOrderItem(int orderItemId, [FromBody] AddOrderItemModel updatedItem)
+        {
+            try
+            {
+                var updatedOrderItem = await _orderItemBL.UpdateOrderItem(orderItemId, updatedItem);
+                _logger.LogInformation($"Order item with ID {orderItemId} updated successfully.");
+
+                // Format success response
+                var response = new
+                {
+                    Success = true,
+                    Message = "Order item updated successfully",
+                    Data = updatedOrderItem
+                };
+
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error occurred while updating order item with ID {orderItemId}: {ex.Message}");
+                return StatusCode(500, new { Success = false, Message = "An error occurred while updating order item", Error = ex.Message });
+            }
+        }
+
     }
 }

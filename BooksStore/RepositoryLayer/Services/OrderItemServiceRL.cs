@@ -73,5 +73,38 @@ namespace RepositoryLayer.Services
                 throw new Exception("Error occurred while retrieving order items by order ID", ex);
             }
         }
+
+        public async Task<OrderItem> UpdateOrderItem(int orderItemId, AddOrderItemModel updatedItem)
+        {
+            try
+            {
+                string query = @"UPDATE OrderItem  SET book_id = @BookId,quantity = @Quantity WHERE order_item_id = @OrderItemId";
+
+                // Execute the update query
+                using (var connection = _context.CreateConnection())
+                {
+                    await connection.ExecuteAsync(query, new
+                    {
+                        BookId = updatedItem.book_id,
+                        Quantity = updatedItem.quantity,
+                        OrderItemId = orderItemId
+                    });
+                }
+
+                // Retrieve the updated order item
+                string selectQuery = "SELECT * FROM OrderItem WHERE order_item_id = @OrderItemId";
+                using (var connection = _context.CreateConnection())
+                {
+                    var updatedOrderItem = await connection.QueryFirstOrDefaultAsync<OrderItem>(selectQuery, new { OrderItemId = orderItemId });
+                    return updatedOrderItem;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error occurred while updating the order item", ex);
+            }
+        }
+
+
     }
 }
