@@ -18,5 +18,10 @@ namespace BusinessLayer.Services
         {
             return _orderItemRL.AddOrderItem(addOrderItemModel);
         }
+
+        public Task<IEnumerable<OrderItem>> GetOrderItemsByOrderId(int orderId)
+        {
+            return _orderItemRL.GetOrderItemsByOrderId(orderId);
+        }
     }
 }

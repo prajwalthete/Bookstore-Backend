@@ -49,5 +49,23 @@ namespace BooksStoreAPI.Controllers
                 });
             }
         }
+
+
+        [Authorize]
+        [HttpGet("{orderId}")]
+        public async Task<IActionResult> GetOrderItemsByOrderId(int orderId)
+        {
+            try
+            {
+                var orderItems = await _orderItemBL.GetOrderItemsByOrderId(orderId);
+                _logger.LogInformation($"Retrieved order items for order ID: {orderId}");
+                return Ok(new { success = true, message = "Order items retrieved successfully", data = orderItems });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error occurred while retrieving order items for order ID: {orderId}", ex);
+                return StatusCode(500, new { success = false, message = "Internal server error" });
+            }
+        }
     }
 }

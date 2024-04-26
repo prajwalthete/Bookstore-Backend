@@ -52,5 +52,26 @@ namespace RepositoryLayer.Services
                 throw new Exception("Error occurred while adding the order item", ex);
             }
         }
+
+
+        //Retrieves all order items for a specific order.
+        public async Task<IEnumerable<OrderItem>> GetOrderItemsByOrderId(int orderId)
+        {
+            try
+            {
+                string query = "SELECT * FROM OrderItem WHERE order_id = @OrderId";
+
+                // Execute the query and retrieve the order items
+                using (var connection = _context.CreateConnection())
+                {
+                    IEnumerable<OrderItem> orderItems = await connection.QueryAsync<OrderItem>(query, new { OrderId = orderId });
+                    return orderItems;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error occurred while retrieving order items by order ID", ex);
+            }
+        }
     }
 }
