@@ -19,6 +19,11 @@ namespace BusinessLayer.Services
             return _orderItemRL.AddOrderItem(addOrderItemModel);
         }
 
+        public Task<bool> DeleteOrderItem(int orderItemId)
+        {
+            return _orderItemRL.DeleteOrderItem(orderItemId);
+        }
+
         public Task<IEnumerable<OrderItem>> GetOrderItemsByOrderId(int orderId)
         {
             return _orderItemRL.GetOrderItemsByOrderId(orderId);

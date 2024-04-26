@@ -53,7 +53,7 @@ namespace BooksStoreAPI.Controllers
 
         [Authorize]
         [HttpGet("{orderId}")]
-        public async Task<IActionResult> GetOrderItemsByOrderId(int orderId)
+        public async Task<IActionResult> GetAllOrderItemsByOrderId(int orderId)
         {
             try
             {
@@ -91,6 +91,32 @@ namespace BooksStoreAPI.Controllers
             {
                 _logger.LogError($"Error occurred while updating order item with ID {orderItemId}: {ex.Message}");
                 return StatusCode(500, new { Success = false, Message = "An error occurred while updating order item", Error = ex.Message });
+            }
+        }
+
+
+        [Authorize]
+        [HttpDelete("{orderItemId}")]
+        public async Task<IActionResult> DeleteOrderItem(int orderItemId)
+        {
+            try
+            {
+                var success = await _orderItemBL.DeleteOrderItem(orderItemId);
+                if (success)
+                {
+                    _logger.LogInformation($"Order item with ID {orderItemId} deleted successfully.");
+                    return Ok(new { success = true, message = "Order item deleted successfully" });
+                }
+                else
+                {
+                    _logger.LogError($"Failed to delete order item with ID {orderItemId}.");
+                    return BadRequest(new { success = false, Message = "Failed to delete order item" });
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"An error occurred while deleting order item with ID {orderItemId}: {ex.Message}");
+                return StatusCode(500, new { Success = false, Message = "Internal server error" });
             }
         }
 

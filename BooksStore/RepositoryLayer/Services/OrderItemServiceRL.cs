@@ -53,7 +53,6 @@ namespace RepositoryLayer.Services
             }
         }
 
-
         //Retrieves all order items for a specific order.
         public async Task<IEnumerable<OrderItem>> GetOrderItemsByOrderId(int orderId)
         {
@@ -104,6 +103,27 @@ namespace RepositoryLayer.Services
                 throw new Exception("Error occurred while updating the order item", ex);
             }
         }
+
+
+        public async Task<bool> DeleteOrderItem(int orderItemId)
+        {
+            try
+            {
+                string query = "DELETE FROM OrderItem WHERE order_item_id = @OrderItemId";
+
+                // Execute the delete query
+                using (var connection = _context.CreateConnection())
+                {
+                    int rowsAffected = await connection.ExecuteAsync(query, new { OrderItemId = orderItemId });
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error occurred while deleting the order item", ex);
+            }
+        }
+
 
 
     }
