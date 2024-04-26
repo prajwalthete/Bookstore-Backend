@@ -26,3 +26,13 @@ CREATE TABLE [Order] (
     FOREIGN KEY (customer_id) REFERENCES Customer(customer_id)
 );
 
+-- Creating OrderItem table
+CREATE TABLE OrderItem (
+    order_item_id INT PRIMARY KEY IDENTITY,
+    order_id INT,
+    book_id INT,
+    quantity INT,
+    FOREIGN KEY (order_id) REFERENCES [Order](order_id),
+    FOREIGN KEY (book_id) REFERENCES Book(book_id)
+);
+

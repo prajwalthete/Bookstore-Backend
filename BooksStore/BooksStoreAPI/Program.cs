@@ -45,6 +45,10 @@ try
     builder.Services.AddScoped<IOrderBL, OrderServiceBL>();
     builder.Services.AddScoped<IOrderRL, OrderServiceRL>();
 
+    builder.Services.AddScoped<IOrderItemBL, OrderItemServiceBL>();
+    builder.Services.AddScoped<IOrderItemRL, OrderItemServiceRL>();
+
+
     // Get the secret key from the configuration
     var key = Encoding.ASCII.GetBytes(builder.Configuration["JwtSettings:Secret"]);
 
