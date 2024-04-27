@@ -51,6 +51,9 @@ try
     builder.Services.AddScoped<IShoppingCartBL, ShoppingCartServiceBL>();
     builder.Services.AddScoped<IShoppingCartRL, ShoppingCartServiceRL>();
 
+    builder.Services.AddScoped<IShoppingCartItemBL, ShoppingCartItemServiceBL>();
+    builder.Services.AddScoped<IShoppingCartItemRL, ShoppingCartItemServiceRL>();
+
 
     // Get the secret key from the configuration
     var key = Encoding.ASCII.GetBytes(builder.Configuration["JwtSettings:Secret"]);

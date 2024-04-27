@@ -65,7 +65,8 @@ namespace BooksStoreAPI.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex, $"Error clearing shopping cart {cartId} for customer ");
-                return StatusCode(500, "An error occurred while clearing the shopping cart."); // Handle exceptions gracefully
+                return BadRequest(new { success = false, message = "An error occurred while clearing the shopping cart.", error = ex.Message });
+
             }
         }
 
