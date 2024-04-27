@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace BooksStoreAPI.Controllers
 {
@@ -16,21 +17,23 @@ namespace BooksStoreAPI.Controllers
         }
 
         [Authorize]
-        [HttpPost("AddCartItem")]
-        [ProducesResponseType(typeof(int), 200)]
-        [ProducesResponseType(400)]
-        [ProducesResponseType(500)]
-        public async Task<IActionResult> AddCartItem(int cartId, int bookId, int quantity)
+        [HttpPost("AddItemToCart")]
+        public async Task<IActionResult> AddCartItem(int bookId, int quantity)
         {
             try
             {
-                var cartItemId = await _shoppingCartItemBL.AddCartItem(cartId, bookId, quantity);
-                return Ok(cartItemId);
+                var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                int customerId = Convert.ToInt32(userIdClaim);
+
+                var cartItemId = await _shoppingCartItemBL.AddCartItem(customerId, bookId, quantity);
+
+                return Ok(new { success = true, message = "Cart Items Added Successfully", Data = cartItemId });
             }
             catch (Exception ex)
             {
-                // Log the exception
-                return StatusCode(500, "Internal server error");
+
+                return StatusCode(500, new { success = false, message = "Shopping cart item not found." });
+
             }
         }
 
@@ -62,15 +65,18 @@ namespace BooksStoreAPI.Controllers
 
         [Authorize]
         [HttpGet]
-        [Route("get/{cartId}")]
-        public async Task<IActionResult> GetCartItems(int cartId)
+        //  [Route("get/{cartId}")]
+        public async Task<IActionResult> GetCartItems()
         {
             try
             {
-                var cartItems = await _shoppingCartItemBL.GetCartItems(cartId);
+                var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
+                int customerId = Convert.ToInt32(userIdClaim);
+
+                var cartItems = await _shoppingCartItemBL.GetCartItems(customerId);
                 if (cartItems == null || !cartItems.Any())
                 {
-                    return NotFound("No cart items found."); // 404 Not Found for empty cart
+                    return NotFound(new { success = false, message = "No cart items found." });
                 }
                 return Ok(new { success = true, message = "Cart Items Retrieved Successfully", data = cartItems }); // 200 OK with data
             }

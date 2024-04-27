@@ -14,6 +14,11 @@ namespace BusinessLayer.Services
             _orderRL = orderRL;
         }
 
+        public Task<Order> BuyNow(PlaceOrderModel placeOrderModel, int customerId)
+        {
+            return _orderRL.BuyNow(placeOrderModel, customerId);
+        }
+
         public Task<bool> DeleteOrder(int orderId, int customerId)
         {
             return _orderRL.DeleteOrder(orderId, customerId);

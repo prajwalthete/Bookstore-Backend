@@ -12,6 +12,8 @@ namespace RepositoryLayer.Interfaces
         public Task<Order> UpdateOrder(int orderId, int customerId, PlaceOrderModel updatedOrder);
 
         public Task<bool> DeleteOrder(int orderId, int customerId);
+
+        public Task<Order> BuyNow(PlaceOrderModel placeOrderModel, int customerId);
     }
 
 }
